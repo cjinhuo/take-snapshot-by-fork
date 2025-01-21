@@ -1,10 +1,10 @@
 {
   "C_Cpp.default.compilerPath": "/opt/homebrew/bin/g++-14",
   "files.associations": {
-    "*.json": "jsonc",
-    "*.md": "markdown",
-    "iostream": "cpp",
-    "chrono": "cpp",
+    "*.json": "jsonc", // JSON 文件使用 JSONC（带注释的 JSON）解析
+    "*.md": "markdown", // .md 文件识别为 Markdown
+    "iostream": "cpp", // iostream 头文件识别为 C++
+    "chrono": "cpp", // chrono 头文件识别为 C++
     "__bit_reference": "cpp",
     "__locale": "cpp",
     "__threading_support": "cpp",

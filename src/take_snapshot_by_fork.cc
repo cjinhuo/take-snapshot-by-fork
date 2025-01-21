@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>
-#include <napi.h>
 #include <node.h>
 #include <v8-profiler.h>
 #include <chrono>
