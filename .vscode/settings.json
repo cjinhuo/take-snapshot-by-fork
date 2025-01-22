@@ -1,10 +1,10 @@
 {
   "C_Cpp.default.compilerPath": "/opt/homebrew/bin/g++-14",
   "files.associations": {
-    "*.json": "jsonc", // JSON 文件使用 JSONC（带注释的 JSON）解析
-    "*.md": "markdown", // .md 文件识别为 Markdown
-    "iostream": "cpp", // iostream 头文件识别为 C++
-    "chrono": "cpp", // chrono 头文件识别为 C++
+    "*.json": "jsonc",
+    "*.md": "markdown",
+    "iostream": "cpp",
+    "chrono": "cpp",
     "__bit_reference": "cpp",
     "__locale": "cpp",
     "__threading_support": "cpp",
@@ -71,6 +71,14 @@
     "sstream": "cpp",
     "stop_token": "cpp",
     "text_encoding": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "forward_list": "cpp",
+    "unordered_set": "cpp",
+    "__hash_table": "cpp",
+    "__node_handle": "cpp",
+    "__split_buffer": "cpp",
+    "complex": "cpp",
+    "execution": "cpp",
+    "semaphore": "cpp"
   }
 }

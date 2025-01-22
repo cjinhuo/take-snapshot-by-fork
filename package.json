@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "prebuildify --target 20.10.0 --arch=arm64 --verbose",
+    "prebuild": "prebuildify --target 18.0.0 --target 20.10.0 --arch=arm64",
     "install": "node-gyp-build"
   },
   "author": "",
