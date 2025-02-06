@@ -1,10 +1,10 @@
 // const addon = require('./prebuilds/darwin-arm64/async-snapshot.v16.uv1.armv8.musl.node')
-// const addon = require('./prebuilds/darwin-x64/async-snapshot.v14.uv1.musl.node')
+// const addon = require('./prebuilds/darwin-x64/async-snapshot.v14.darwin-x64.uv1.musl.node')
 const addon = require('./prebuilds/darwin-x64/async-snapshot.v12.darwin-x64.uv1.musl.node')
 // const addon = require('./prebuilds/darwin-x64/async-snapshot.v10.uv1.musl.node')
 const v8 = require('v8')
 const fs = require('fs')
-
+debugger
 class MainClass { }
 const obj = new MainClass();
 global.buf = Buffer.alloc(1024)
@@ -13,8 +13,7 @@ for (let i = 0; i < 100; i++) {
     xxxx[i] = i
 }
 setInterval(() => {
-    obj;
-    xxxx;
+    console.log('main thread setInterval')
 }, 2000)
 
 setTimeout(() => {

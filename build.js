@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 // , '18.0.0', '20.0.0'
 // '14.0.0', '16.0.0', '18.0.0'
 // 10.0.0, 12.0.0
-const VERSIONS = ['12.0.0'];
+const VERSIONS = ['14.0.0'];
 // darwin, linux
 const PLATFORMS = ['darwin']
 
@@ -13,7 +13,7 @@ const NAME = 'async-snapshot'
 const executeBuild = (version, platform, arch) => {
   console.log(`Building for Node.js ${version} (${arch})`);
 
-  const baseCommand = 'prebuildify --napi --strip';
+  const baseCommand = 'prebuildify --build --napi --strip';
   const commonFlags = [
     `--arch ${arch}`,
     `--target node@${version}`,

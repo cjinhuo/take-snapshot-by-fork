@@ -45,11 +45,43 @@ namespace addon
     FILE *stream_;
   };
 
+  // 添加 fork 处理函数
+  void prepare_fork()
+  {
+    std::cout << "prepare_fork" << std::endl;
+    std::cout.flush(); // 确保输出被刷新
+  }
+
+  void parent_after_fork()
+  {
+    std::cout << "parent_after_fork" << std::endl;
+    std::cout.flush(); // 确保输出被刷新
+  }
+
+  void child_after_fork()
+  {
+    std::cout << "child_after_fork" << std::endl;
+    std::cout.flush(); // 确保输出被刷新
+  }
+
+  // 将 pthread_atfork 注册移到全局初始化
+  struct AtForkRegistration
+  {
+    AtForkRegistration()
+    {
+      if (pthread_atfork(prepare_fork, parent_after_fork, child_after_fork) != 0)
+      {
+        perror("pthread_atfork");
+      }
+    }
+  } g_atfork_registration;
+
   void TakeSnapshotByFork(const FunctionCallbackInfo<Value> &args)
   {
     high_resolution_clock::time_point fork_t1 = high_resolution_clock::now();
     Isolate *isolate = args.GetIsolate();
     String::Utf8Value filename(isolate, args[0]);
+    std::cout << "Starting manual GC..." << std::endl;
     isolate->LowMemoryNotification();
 
     pid_t pid = fork();
@@ -75,8 +107,7 @@ namespace addon
       std::cout << "Physical memory: " << heap_stats.total_physical_size() << std::endl;
 
       // 在生成快照前先触发一次完整的垃圾回收
-      high_resolution_clock::time_point gc_t1 = high_resolution_clock::now();
-      std::cout << "Starting manual GC..." << std::endl;
+      // high_resolution_clock::time_point gc_t1 = high_resolution_clock::now();
 
       // isolate->LowMemoryNotification(); // 通知 V8 进行完整的 GC
 
